@@ -1,23 +1,24 @@
 import  mongoose  from 'mongoose';
 
+// rules for entering data in user
 const userSchema = new mongoose.Schema({
     username: {
-        type: String,
-        require: true,
+        type: String, // numbers and boolen not allowed
+        required: true,
         unique: true,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         unique: true,
     },
     password: {
         type: String,
-        require: true,
+        required: true,
     }
-},{timestamps: true} );
+},{timestamps: true} ); // timestamp for time of creation ot the user & updation of the user
 
-const User = mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema); // moodel for users
 
-export default User;
+export default User; // set default to use this model anywhere in the application
 
